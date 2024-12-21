@@ -1,0 +1,187 @@
+$ git init 
+# to initialize a new git repository
+# to start tracking that folder and all subfolders
+# this will create a .git folder(directory) in the folder
+
+
+$ git config --list 
+# to show all git config parameters (username, email, etc)
+
+$ git config --global user.name "Your Name" 
+# to set username
+
+$ git config --global user.email "Your Email" 
+# to set email
+
+$ git config --global color.ui true 
+# to enable color
+
+
+if you need a help:
+syntax: git help <verb>
+or      git <verb> --help
+--------------------------
+$ git help config
+or
+$ git config --help
+
+
+$ git rm -rf .git 
+# stop tracking that folder(project)
+
+$ git status 
+# to check the status of the repository
+# to see if there are any changes
+
+$ touch .gitignore
+# to create a .gitignore file
+# .filename.txt - '.' means current folder and filename.txt means file name
+# .foldername - '.' means current folder and foldername means folder name
+# *.py - means all python files
+
+---------------------------------------------------------------------------
+# concept of git:
+I) working directory - is the folder that you are currently in
+II) staging area -is the area where we organize what we want to commit to our repository
+III) repository - is the area where we store our code. (local machine)
+IV) remote repository - is the area where we store our code. (cloud)
+----------------------------------------------------------------------------
+
+
+$ git add -A 
+# to add all files to staging area
+# you can add files individually as well
+
+$ git commit -m "some text"
+# to add a changes from staging area to local repository 
+# -m # is message, detailed description of changes
+
+$ git commit --amend -m "some text"
+# <--amend> means to edit last commit
+# <-m> means "message"
+# Note: A message must be in duble<""> not single<''>
+
+-----------------------------------------------
+
+$ git reset 
+# to remove everything from staging area
+
+$ git reset filename2.smth
+# to remove filename2.smth from staging area (one file)
+
+$ git reset --hard
+# to restore everything from last commit
+
+$ git reset --hard <commit_hash>
+# to restore everything from a specific commit
+------------------------------------------------
+
+
+$ git log
+# to see all commits
+
+$ q
+# to quit (to exit from git log command)
+
+$ git log --oneline
+# to see all commits in one line
+
+$ git log --pretty=oneline
+# to see all commits in one line
+
+$ git log --stat
+# this will show a files that was changed within the commit
+
+$ git log --graph
+# to see all commits in a graph
+
+$ git reflog
+# to see
+--------------------------------------------------------------------
+
+
+If you want to start tracking remote repository:
+
+$ git clone <url> <where you want to clone>
+# by default <where you want to clone> is <.>
+# <.> Current directory
+# <..> parent directory 
+# example: $ git clone https://github.com/username/repo.git /home/xtz/Documents
+# or (by default if doesn't specify <where you want to clone> is <.> i.e. current directory): 
+#          $ git clone https://github.com/username/repo.git 
+# or
+# if you want to copy a repository from a local directory to another local directory:
+#          $ git clone /home/xtz/Documents/username/repo.git /home/xtz/Downloads
+#
+#
+# $ git clone --branch <branch_name> <repository_url>
+# if you want to clone a specific branch
+# example: $ git clone --branch master https://github.com/username/repo.git
+# or
+# $ git clone -b <branch_name> <repository_url>
+# example: $ git clone -b master https://github.com/username/repo.git
+
+
+
+$ git remote -v 
+# to get list info about remote repo
+
+$ git branch -a
+# to get list all branch 
+# not only localy but remotely as well
+
+$ git diff
+# to show difference that have been changed
+
+$ git pull remote branch
+# to download changes from remote repository
+# example: $ git pull origin master
+
+$ git push remote branch
+# to upload changes to remote repository
+# example: $ git push origin master
+
+
+$ git branch <name_of_branch>
+# to create a new branch
+
+$ git branch
+# to list all local branches
+# if asterisk (*) next to branch name means it is current working branch
+
+$ git checkout <name_of_branch>
+# to switch(to start working on to some branch) to a branch
+
+$ git push -u <remote> <name_of_branch>
+# to upload the local branch to remote repository
+# example: $ git push -u origin new_module
+# <-u> means --set-upstream (i.e. further no need to specify remote repository (it will be 
+# enough $ git push or $ git pull))
+
+$ git branch --merged
+# to list all merged branches
+
+$ git merge <name_of_branch>
+# to merge two branches into one
+# i.e merge <name_of_branch> into <current_working_branch>
+# and it is all in local repository
+# to make changes in remote repository:
+# $ git push <remote> <current_working_branch>
+
+$ git branch -d <name_of_branch>
+# to delete a branch from local repository
+# example: $ git branch -d new_module
+
+$ git branch -D <name_of_branch>
+# to delete a branch from remote repository
+# example: $ git branch -D new_module
+# <-D> means --delete from remote
+# or 
+# example: $ git push origin --delete new_module (i.e $ git push <remote> --delete <name_of_branch>)
+
+
+
+
+
+
+

@@ -122,41 +122,85 @@ $ git clone <url> <where you want to clone>
 # example: $ git clone -b master https://github.com/username/repo.git
 
 
-
-$ git remote -v 
-# to get list info about remote repo
-
-$ git branch -a
-# to get list all branch 
-# not only localy but remotely as well
-
 $ git diff
 # to show difference that have been changed
 
-$ git pull remote branch
-# to download changes from remote repository
-# example: $ git pull origin master
-
-$ git push remote branch
-# to upload changes to remote repository
-# example: $ git push origin master
 
 
-$ git branch <name_of_branch>
-# to create a new branch
+-------------------------Branches--------------------------
+-----local branches-----
+
+$ git branch -a
+# to get list all branches 
+# not only localy but remotely as well
 
 $ git branch
 # to list all local branches
 # if asterisk (*) next to branch name means it is current working branch
 
+$ git branch <name_of_local_branch>
+# to create a new local branch
+
 $ git checkout <name_of_branch>
 # to switch(to start working on to some branch) to a branch
 
-$ git push -u <remote> <name_of_branch>
+$ git checkout -b <name_of_branch>
+# to create and switch(to start working on to some branch) to a branch
+
+$ git branch -d <name_of_branch>
+# to delete a branch
+
+$ git branch -m <new_name_of_branch>
+# to rename a current branch to <new_name_of_branch>
+# example current branch name is master: $ git branch -m main
+# now current branch name is main
+
+
+
+-----remote branches-----
+
+$ git remote
+# to get list remote repo
+
+$ git remote -v 
+# to get list info about remote repo
+
+$ git remote add <name_of_remote_repository> <ssh_url>
+# to add a remote repository (connect "to introduce" to remote repository)
+# example: $ git remote add origin https://github.com/username/repo.git
+# what is going on here: origin is alias for url, so we just link a convenient name to url
+# example: $ git remote add <give the name of remote repository>  <https://github.com/username/repo.git>
+
+$ git remote rename <old_name_of_remote_repository> <new_name_of_remote_repository>
+# to rename a remote repository
+# example: $ git remote rename origin my_github
+
+$ git <branch> -M <name_of_remote_branch>
+# to rename a remote branch
+# example: $ git origin -M main
+
+$ git remote remove <name_of_remote_repository>
+# to remove a remote repository
+# example: $ git remote remove origin
+
+$ git pull <remote_name> <remote_branch>
+# to download changes from remote repository
+# example: $ git pull origin master
+
+$ git push <remote_name> <local_branch>
+# to upload changes to remote repository
+# example: $ git push origin master
+
+$ git push -u <remote> <name_of_local_branch>
 # to upload the local branch to remote repository
-# example: $ git push -u origin new_module
+# example: $ git push -u origin master
 # <-u> means --set-upstream (i.e. further no need to specify remote repository (it will be 
 # enough $ git push or $ git pull))
+
+$ git push <remote> <local_branch>:<new_remote_branch_name_in_remote_repository>
+for example: $ git push origin master:NVIM
+# to upload the local branch to remote repository to a specifing name of remote new_branch
+
 
 $ git branch --merged
 # to list all merged branches
@@ -172,12 +216,11 @@ $ git branch -d <name_of_branch>
 # to delete a branch from local repository
 # example: $ git branch -d new_module
 
-$ git branch -D <name_of_branch>
+$ git push <remote> --delete <name_of_remote_branch>
 # to delete a branch from remote repository
-# example: $ git branch -D new_module
-# <-D> means --delete from remote
+# example: $ git push origin --delete master
 # or 
-# example: $ git push origin --delete new_module (i.e $ git push <remote> --delete <name_of_branch>)
+# example: $ git push origin --delete new_module (i.e $ git push <remote> --delete <name_of_remote_branch>)
 
 
 

@@ -30,18 +30,17 @@ just to remember:
 -------------------Options-----------------
 
 -- To change the local working directory to the directory of the current buffer upon entering it
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    vim.cmd("lcd %:p:h")
-  end,
-})
-
-
--- Open Neovim in full screen
-vim.cmd([[
-  autocmd VimEnter * :silent exec "!wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz"
-]])
-
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   callback = function()
+--     vim.cmd("lcd %:p:h")
+--   end,
+-- })
+--
+-- -- Open Neovim in full screen
+-- vim.cmd([[
+--   autocmd VimEnter * :silent exec "!wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz"
+-- ]])
+--
 
 -- To change the display style of the Netrw file explorer
 vim.cmd("let g:netrw_liststyle = 3")

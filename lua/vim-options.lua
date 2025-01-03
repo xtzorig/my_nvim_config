@@ -52,9 +52,9 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 -- tabs & indentation
 vim.cmd("set expandtab") -- expand tab to spaces
-vim.cmd("set tabstop=2")  -- x spaces for tabs
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2") -- x spaces for indent width
+vim.cmd("set tabstop=4")  -- x spaces for tabs
+vim.cmd("set softtabstop=4")
+vim.cmd("set shiftwidth=4") -- x spaces for indent width
 -- vim.opt.autoindent = true -- copy indent from current line when starting new on
 
 --Appearance

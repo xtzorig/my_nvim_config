@@ -90,6 +90,7 @@ return {
           },
         },
       },
+      -- to sort tree by numbers
       sort = {
         sorter = function(nodes)
           table.sort(nodes, function(a, b)

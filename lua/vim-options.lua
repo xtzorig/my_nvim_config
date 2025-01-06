@@ -47,7 +47,8 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 
 -- How text is displayed when it exceeds the width of the window
--- vim.opt.wrap = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 
 -- tabs & indentation
@@ -60,8 +61,6 @@ vim.cmd("set shiftwidth=4") -- x spaces for indent width
 --Appearance
 vim.opt.number = true
 vim.opt.relativenumber = false
--- vim.opt.wrap = false
-
 
 --Search settings
 vim.opt.ignorecase = true -- ignore case when searching
@@ -96,7 +95,8 @@ vim.opt.termguicolors = true
 -- vim.opt.modifiable = true
 
 -- Clipboard
-vim.opt.clipboard:append ("unnamedplus") -- use system clipboard as default register
+vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- vim.opt.clipboard = "unnamedplus"
 
 -- Split window
 -- vim.opt.splitright = true -- split vertical window to the right
@@ -106,7 +106,7 @@ vim.opt.scrolloff = 999 -- or 17
 -- it will start scrolling the window when the cursor is in the middle of the screen
 
 -- Turn off swapfile:
--- vim.opt.swapfile = false
+vim.opt.swapfile = false
 
 -- Split inccommand:
 -- vim.opt.inccommand = "split"
@@ -174,4 +174,19 @@ vim.keymap.set("n", "<leader>ld", function()
     })
 end, { desc = "Toggle LSP Diagnostics" })
 -------------------------------------------------------------------------------------------------------
+
+-- Map delete commands to use the black hole register
+-- Now, when you use the d or x commands to delete text, it won't be stored in any register, and you won't be able to paste it later using "0p or similar commands.
+-- vim.keymap.set('n', 'd', '"_d')        -- Normal mode delete
+-- vim.keymap.set('n', 'dd', '"_dd')      -- Normal mode delete line
+-- vim.keymap.set('v', 'd', '"_d')        -- Visual mode delete
+-- vim.keymap.set('n', 'D', '"_D')        -- Normal mode delete to end of line
+-- vim.keymap.set('n', 'x', '"_x')        -- Normal mode delete character
+-- vim.keymap.set('n', 'X', '"_X')        -- Normal mode delete character before cursor
+-- vim.keymap.set('n', 'c', '"_c')        -- Normal mode change
+-- vim.keymap.set('n', 'cc', '"_cc')      -- Normal mode change line
+-- vim.keymap.set('v', 'c', '"_c')        -- Visual mode change
+-- vim.keymap.set('n', 's', '"_s')        -- Normal mode substitute character
+-- vim.keymap.set('n', 'S', '"_S')        -- Normal mode substitute line
+-- vim.keymap.set('v', 's', '"_s')        -- Visual mode substitute
 

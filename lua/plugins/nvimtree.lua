@@ -65,11 +65,11 @@ return {
   },
   config = function()
     require("nvim-tree").setup {
-      update_cwd = true, -- Automatically update the current working directory
+      -- update_cwd = true, -- Automatically update the current working directory
 
       update_focused_file = {
         enable = true, -- Enable updating focused file
-        -- update_cwd = true, -- Update cwd when opening a file
+        update_cwd = true, -- Update cwd when opening a file
       },
       view = {
         width = 35,

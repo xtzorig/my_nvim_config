@@ -1,32 +1,3 @@
--- :echo stdpath("config")
--- to ask nvim where the init.lua file is
-
--- :options  
--- to see all options
-
--- :h vim. + enter
--- h is for help
--- vim. is for vim commands
--- + enter to open help
-
--- :q
--- to quit
-
---[[
-there are to ways to script configuration in nvim:
-1. Vimscript: set number   (this is old and not recommended)
-2. Lua: vim.opt.number = true
-if 'set' it means vimscript
-if 'vim.o' it means lua
-
-just to remember:
-- in normal mode:
-  v is visual mode
-  ctrl+v is visual block mode (very useful) 
-
-]]
-
-
 -------------------Options-----------------
 
 -- To change the local working directory to the directory of the current buffer upon entering it
@@ -47,8 +18,8 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 
 -- How text is displayed when it exceeds the width of the window
-vim.opt.wrap = true
-vim.opt.linebreak = true
+vim.opt.wrap = true -- I like true
+vim.opt.linebreak = true -- I like true
 
 
 -- tabs & indentation
@@ -114,8 +85,6 @@ vim.opt.swapfile = false
 --the change is previewed in the window below
 
 
-
-
 --------------KeyMappings--------------
 
 vim.g.mapleader = " "
@@ -134,7 +103,9 @@ vim.keymap.set("n", "<leader>x", ":bd<CR>", {silent = true, desc = "close curren
 
 -- for example: vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk"})
 
-vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights"})
+-- vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights"})
+vim.keymap.set("n", "<leader>h", ":nohl<CR>", { desc = "Clear search highlights"})
+
 
 -- increment/decrement numbers
 
